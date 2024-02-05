@@ -1,6 +1,6 @@
 class ScoreCard:
 
-    PENULTIMATE_FRAME_POSITION = 9
+    
     def __init__(self,pins):
         self.pins = pins
         self.lenPins = len(self.getPins())
@@ -23,19 +23,23 @@ class ScoreCard:
     
     def getFrames(self):
         frames = []
+        pins = self.getPins()
         
         position = 0
-        while position < len(self.getPins()):
-            if self.getPins()[position] != "x" and len(frames) != self.PENULTIMATE_FRAME_POSITION:
-                frames.append(self.getPins()[position:position+2])
+        while position < len(pins) and len(frames) < 9:
+            currentPin = pins[position]
+
+            if currentPin != "x":
+                frames.append(pins[position:position+2])
                 position += 2
-            elif self.getPins()[position] == "x" and len(frames) != self.PENULTIMATE_FRAME_POSITION:
-                frames.append(self.getPins()[position])
+
+            else:
+                frames.append(currentPin)
                 position += 1
-            elif len(frames) == self.PENULTIMATE_FRAME_POSITION:
-                frames.append(self.getPins()[position:])
-                break
-            
+
+        if len(frames) == 9:
+            frames.append(pins[position:])
+                
         return frames
 
     def getFrameByPosition(self,position):

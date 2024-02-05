@@ -15,9 +15,7 @@ def test_getFrames():
     assert ScoreCard('9-9-9-9-9-9-9-9-9-x').getFrames() == ['9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', 'x']
     assert ScoreCard('9-9-9-9-9-9-9-9-9-xxx').getFrames() == ['9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', 'xxx']
     assert ScoreCard('9-9-9-9-9-9-9-9-9-x1/').getFrames() == ['9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', 'x1/']
-    assert ScoreCard('9-9-9-9-9-9-9-9-9-1/x').getFrames() == ['9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '1/x']
-    assert ScoreCard('9-9-9-9-9-9-9-9-9-x1-').getFrames() == ['9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', 'x1-']
-    assert ScoreCard('9-9-9-9-9-9-9-9-9-xx-').getFrames() == ['9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', '9-', 'xx-']
+    assert ScoreCard('x9-1/56--xx9-9/xx-').getFrames() == ['x', '9-', '1/', '56', '--', 'x', 'x', '9-', '9/', 'xx-']
     
 def test_getFrameByPosition():
     assert ScoreCard('9-9-9-9-9-9-9-9-9-9-').getFrameByPosition(2) == "9-"
